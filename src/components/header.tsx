@@ -22,7 +22,13 @@ function Header() {
   return (
     <>
       <div className="h-screen relative">
-        <Carousel className="h-full" plugins={[plugin.current]}>
+        <Carousel
+          className="h-full"
+          plugins={[plugin.current]}
+          opts={{
+            loop: true,
+          }}
+        >
           <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-10" />
           <CarouselContent className="h-screen">
             {images.map((data, index) => (

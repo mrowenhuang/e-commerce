@@ -1,20 +1,19 @@
 import "./App.css";
-import SimpleNavbar from "./components/creative-tim/blocks/simple-navbar";
-import Header from "./components/header";
-import ProductCard from "./components/product_card";
-import Recommended from "./components/recommended";
-import Shop from "./components/shop";
-import Social from "./components/social";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/home_page";
+import ShopPage from "./pages/shop_page";
+import SigninPage from "./pages/signin_page";
 
 function App() {
   return (
-    <>
-      <SimpleNavbar />
-      <Header/>
-      <Shop/>
-      <Recommended/>
-      <Social/>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/shop" element={<ShopPage />} />
+        <Route path="/signin" element={<SigninPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

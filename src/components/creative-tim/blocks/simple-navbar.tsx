@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Bell, Menu, Heart, ShoppingCart } from "lucide-react";
-
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../../ui/button";
 import {
   Select,
@@ -14,13 +14,14 @@ import {
 
 export default function SimpleNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <nav className="w-full overflow-visible rounded-lg border border-transparent p-2 shadow-transparent px-10">
       <div className="relative flex items-center gap-8">
-        <a href="#" className="mr-8 block text-base leading-tight font-bold">
+        <Link to="/" className="mr-8 block text-base leading-tight font-bold">
           CODAI
-        </a>
+        </Link>
         <div
           className={`${
             isMenuOpen ? "block" : "hidden"
@@ -31,9 +32,9 @@ export default function SimpleNavbar() {
         >
           <ul className="mt-4 flex flex-col gap-y-1.5 p-4 lg:mt-0 lg:flex-row lg:items-center lg:gap-x-4 lg:p-0">
             <li>
-              <a href="#" className="p-1 text-sm">
+              <Link to="/shop" className="p-1 text-sm">
                 Shop
-              </a>
+              </Link>
             </li>
             {/* <li>
               <a href="#" className="p-1 text-sm">
@@ -77,9 +78,11 @@ export default function SimpleNavbar() {
             variant="ghost"
             size="icon"
             className="hover:bg-muted mr-1 hidden lg:grid"
+            onClick={() => navigate("/cart")}
           >
             <ShoppingCart className="h-5 w-5" />
           </Button>
+
           {/* <div className="w-full max-w-sm min-w-50">
             <Select defaultValue="project-1">
               <SelectTrigger className="border-border">
@@ -92,7 +95,19 @@ export default function SimpleNavbar() {
               </SelectContent>
             </Select>
           </div> */}
-          {/* <Button className="hidden lg:inline-flex">Check Out</Button> */}
+          <Button
+            className="hidden lg:inline-flex"
+            onClick={() => navigate("/signin")}
+          >
+            Sign In
+          </Button>
+          <Button
+            className="hidden lg:inline-flex"
+            variant={'link'}
+            onClick={() => navigate("/signup")}
+          >
+            Sign Up
+          </Button>
           <Button
             size="icon"
             className="grid lg:hidden"

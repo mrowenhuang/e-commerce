@@ -283,9 +283,9 @@ function ProductCardRecomended() {
   return (
     <>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 justify-items-center mt-5 items-center ">
-        {data.map((data) => {
+        {data.map((data,index) => {
           return (
-            <Card className="lg:w-60 sm:w-50 max-w-md rounded">
+            <Card className="lg:w-60 sm:w-50 max-w-md rounded" key={index}>
               <img
                 // height={50}
                 // width={100}
