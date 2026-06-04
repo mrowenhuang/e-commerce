@@ -1,23 +1,24 @@
 "use client";
 
-import { useState } from "react";
-import { Bell, Menu, Heart, ShoppingCart } from "lucide-react";
+import { Heart, Menu, ShoppingCart } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Avatar, AvatarFallback, AvatarImage } from "../../ui/avatar";
 import { Button } from "../../ui/button";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "../../ui/select";
+import { useCartStore } from "../../../stores/cart_store";
 
 export default function SimpleNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSignin, setIsSignIn] = useState<string | null>();
   const navigate = useNavigate();
+  const items = useCartStore((state) => state.items);
+  useEffect(() => {
+    const acc = localStorage.getItem("acc");
+    setIsSignIn(acc);
+  }, []);
 
   return (
-    <nav className="w-full overflow-visible rounded-lg border border-transparent p-2 shadow-transparent px-10">
+    <nav className="w-full overflow-visible  border border-transparent p-3 shadow-transparent px-10 sticky top-0 z-50 bg-white">
       <div className="relative flex items-center gap-8">
         <Link to="/" className="mr-8 block text-base leading-tight font-bold">
           CODAI
@@ -67,21 +68,28 @@ export default function SimpleNavbar() {
           </ul>
         </div>
         <div className="ml-auto flex items-center gap-2">
-          <Button
+          {/* <Button
             variant="ghost"
             size="icon"
             className="hover:bg-muted hidden lg:grid"
           >
             <Heart className="h-5 w-5" />
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="hover:bg-muted mr-1 hidden lg:grid"
-            onClick={() => navigate("/cart")}
-          >
-            <ShoppingCart className="h-5 w-5" />
-          </Button>
+          </Button> */}
+          <div className="flex relative mr-3">
+            {items.length === 0 ? null : (
+              <p className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                {items.length}
+              </p>
+            )}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="hover:bg-muted mr-1 hidden lg:grid"
+              onClick={() => navigate("/cart")}
+            >
+              <ShoppingCart className="h-5 w-5" />
+            </Button>
+          </div>
 
           {/* <div className="w-full max-w-sm min-w-50">
             <Select defaultValue="project-1">
@@ -95,19 +103,30 @@ export default function SimpleNavbar() {
               </SelectContent>
             </Select>
           </div> */}
-          <Button
-            className="hidden lg:inline-flex"
-            onClick={() => navigate("/signin")}
-          >
-            Sign In
-          </Button>
-          <Button
-            className="hidden lg:inline-flex"
-            variant={'link'}
-            onClick={() => navigate("/signup")}
-          >
-            Sign Up
-          </Button>
+          {isSignin ? (
+            <Avatar>
+              <AvatarImage src="https://github.com/shadcn.png" />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
+          ) : (
+            <>
+              <Button
+                className="hidden lg:inline-flex"
+                onClick={() => navigate("/signin")}
+              >
+                Sign In
+              </Button>
+
+              <Button
+                className="hidden lg:inline-flex"
+                variant="link"
+                onClick={() => navigate("/signup")}
+              >
+                Sign Up
+              </Button>
+            </>
+          )}
+
           <Button
             size="icon"
             className="grid lg:hidden"

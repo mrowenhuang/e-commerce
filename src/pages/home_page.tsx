@@ -8,12 +8,12 @@ import Social from "../components/social";
 function HomePage() {
   return (
     <>
-      <SimpleNavbar />
+      {/* <SimpleNavbar /> */}
       <Header />
       <Shop />
       <Recommended />
       <Social />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

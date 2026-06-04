@@ -9,4 +9,5 @@ export type Product = {
     rate: number;
     count: number;
   };
+  qty: number | null;
 };

@@ -17,48 +17,47 @@ import Autoplay from "embla-carousel-autoplay";
 const images = [model1, model2, model3, model4];
 
 function Header() {
-  const plugin = React.useRef(Autoplay({ delay: 3000 }));
+  // const plugin = React.useRef(Autoplay({ delay: 3000 }));
 
   return (
     <>
-      <div className="h-screen relative">
-        <Carousel
-          className="h-full"
-          plugins={[plugin.current]}
-          opts={{
-            loop: true,
-          }}
-        >
-          <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-10" />
-          <CarouselContent className="h-screen">
-            {images.map((data, index) => (
-              <CarouselItem key={index} className="h-full relative">
-                {/* 🔥 gambar full */}
-                <img src={data} className="w-full h-full object-cover" />
-
-                {/* overlay */}
-                <div className="absolute inset-0 bg-black/30" />
-
-                {/* text */}
-                {index === 0 && (
-                  <div className="absolute top-1/2 -translate-y-1/2 left-20 z-10">
-                    <h1 className="text-5xl font-bold text-primary-foreground">
-                      Elevate Your Style
-                    </h1>
-                    <p className="text-xl line-clamp-2 max-w-xl py-3 text-primary-foreground">
-                      Discover fashion that reflects your individuality,
-                      enhances your confidence, and defines your presence in
-                      every moment.
-                    </p>
-                    <Button variant="outline">Shop Now</Button>
-                  </div>
-                )}
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-
-          <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-10" />
-        </Carousel>
+      <div className="h-screen relative flex">
+        <div className="flex flex-col flex-1 p-10 items-start justify-center relative">
+          <img
+            src={images[2]}
+            className="max-w-85 max-h-85 w-auto h-auto absolute z-0 "
+          />
+          <h1 className="font-bold text-4xl z-10 ">
+            Make Your Style Stand <br />
+            Out with Our Unique Fashion Collection
+          </h1>
+          <p className="my-4 z-10 rounded-xl border border-white/20 bg-white/10 backdrop-blur-sm p-4 text-primary">
+            Discover the latest trends and timeless classics in our fashion
+            collection. From chic streetwear to elegant evening wear, we have
+            something for every style and occasion. Shop now and elevate your
+            wardrobe with our unique pieces.
+          </p>{" "}
+          <Button className=" z-10">Shop Now</Button>
+        </div>
+        <div className="flex flex-1 items-center justify-center relative">
+          <img
+            src={images[1]}
+            className="max-w-85 max-h-85 w-auto h-auto absolute translate-x-35 -translate-y-50 z-10 shadow-lg rounded"
+          />
+          <img
+            src={images[0]}
+            className="max-w-145 max-h-145 w-auto h-auto absolute -translate-x-1/3 shadow-2xl rounded"
+          />
+          <h1 className="absolute font-bold text-4xl translate-x-40 translate-y-25 underline">
+            B&W
+          </h1>
+          <h1 className="absolute font-bold text-4xl translate-x-65 translate-y-40 underline">
+            CODAI
+          </h1>
+          <h1 className="absolute font-bold text-4xl -translate-x-55 -translate-y-83 underline">
+            FASHION
+          </h1>
+        </div>
       </div>
     </>
   );
