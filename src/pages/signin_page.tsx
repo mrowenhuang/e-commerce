@@ -23,6 +23,8 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
+import model4 from "@/assets/model4.jpg";
+
 const loginSchema = z.object({
   username: z.string(),
   password: z.string(),
@@ -121,8 +123,8 @@ function SigninPage() {
             </Card>
           </div>
           <img
-            alt="Nature landscape with mountains"
-            src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&w=2000&q=85"
+            alt="model4"
+            src={model4}
             className="h-full w-full rounded-xl object-cover shadow-2xl"
           />
         </div>

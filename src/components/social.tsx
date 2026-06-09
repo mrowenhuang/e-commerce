@@ -19,33 +19,71 @@ function Social() {
 
   return (
     <>
-      <div className="py-10 h-screen">
-        <div className="h-full px-10">
-          <h1 className="max-w-xl line-clamp-3 text-4xl font-extralight">
-            Follow our impressive Instagram for updates and promotion
-          </h1>
+      <section id="social" className="scroll-mt-24">
+        <div className="py-12 md:py-20 min-h-screen">
+          <div className="px-4 md:px-8 lg:px-10">
+            {/* Header */}
+            <div className="flex flex-col lg:flex-row gap-6 justify-between">
+              <div className="flex flex-col flex-1">
+                <h2 className="font-bold text-center lg:text-left">
+                  ~[COMMUNITY]~
+                </h2>
 
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-              dragFree: true,
-            }}
-            className="mt-12"
-            plugins={[plugin.current]}
-          >
-            <CarouselContent>
-              {images.map((image, index) => (
-                <CarouselItem key={index} className="basis-1/2 md:basis-1/4">
-                  <div className={index % 2 === 0 ? "" : "mt-16"}>
-                    <img src={image} alt="" className="rounded w-full" />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
+                <h2 className="font-light text-lg md:text-xl lg:text-2xl text-center lg:text-left">
+                  Follow our impressive Instagram for updates and promotion
+                </h2>
+              </div>
+
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-center lg:text-right">
+                [SOCIAL]
+              </h2>
+            </div>
+
+            {/* Carousel */}
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+                dragFree: true,
+              }}
+              className="mt-8 md:mt-12"
+              plugins={[plugin.current]}
+            >
+              <CarouselContent>
+                {images.map((image, index) => (
+                  <CarouselItem
+                    key={index}
+                    className="
+                basis-[85%]
+                sm:basis-1/2
+                md:basis-2/3
+                lg:basis-1/4
+              "
+                  >
+                    <div
+                      className={`
+                  overflow-hidden
+                  rounded-xl
+                  ${index % 2 === 0 ? "" : "lg:mt-16"}
+                `}
+                    >
+                      <img
+                        src={image}
+                        alt=""
+                        className="
+                    w-full
+                    object-cover
+                    rounded-xl
+                  "
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+          </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }

@@ -33,9 +33,24 @@ export default function SimpleNavbar() {
         >
           <ul className="mt-4 flex flex-col gap-y-1.5 p-4 lg:mt-0 lg:flex-row lg:items-center lg:gap-x-4 lg:p-0">
             <li>
-              <Link to="/shop" className="p-1 text-sm">
-                Shop
-              </Link>
+              <button
+                className="p-1 text-sm"
+                onClick={() => {
+                  if (window.location.pathname === "/") {
+                    document
+                      .getElementById("shop")
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  } else {
+                    navigate("/", {
+                      state: {
+                        scrollTo: "shop",
+                      },
+                    });
+                  }
+                }}
+              >
+                Collection
+              </button>
             </li>
             {/* <li>
               <a href="#" className="p-1 text-sm">
@@ -48,15 +63,30 @@ export default function SimpleNavbar() {
               </a>
             </li> */}
             <li>
-              <a href="#" className="p-1 text-sm">
+              <button
+                className="p-1 text-sm"
+                onClick={() => {
+                  if (window.location.pathname === "/") {
+                    document
+                      .getElementById("social")
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  } else {
+                    navigate("/", {
+                      state: {
+                        scrollTo: "social",
+                      },
+                    });
+                  }
+                }}
+              >
                 Social
-              </a>
+              </button>
             </li>
-            <li>
+            {/* <li>
               <a href="#" className="p-1 text-sm">
                 About Us
               </a>
-            </li>
+            </li> */}
             <li>
               <Button
                 variant="secondary"

@@ -62,83 +62,101 @@ function CartPage() {
     <>
       <div className="min-h-screen  flex">
         <div className="flex-6 py-6 px-5">
-          {items.map((value, index) => (
-            <Card
-              className={`mb-2 ${
-                checkedItems.includes(value.id) ? "border-primary border" : ""
-              }`}
-              key={index}
-            >
-              {" "}
-              <CardHeader>
-                <CardTitle className="flex gap-2">
-                  <Button
-                    variant={"outline"}
-                    size={"icon"}
-                    aria-label="Decrease"
-                    onClick={() => {
-                      delteItem(value.id);
-                    }}
-                  >
-                    <Trash className="text-destructive" />
-                  </Button>
-                  {value.title}
-                </CardTitle>
-                <CardDescription className="flex pt-2 gap-4">
-                  <img src={value.image} className="size-22" />
-                  <div className="flex-3 line-clamp-4 ">
-                    {value.description}
-                  </div>
+          {items.length === 0 ? (
+            <div className="h-[calc(100%-40px)] flex items-center justify-center">
+              <Empty>
+                <EmptyHeader>
+                  <EmptyMedia variant="icon">
+                    <ShoppingCart />
+                  </EmptyMedia>
+                  <EmptyTitle>No Checkout Yet</EmptyTitle>
+                  <EmptyDescription>
+                    You haven&apos;t checkout any product yet.
+                  </EmptyDescription>
+                </EmptyHeader>
+              </Empty>
+            </div>
+          ) : (
+            items.map((value, index) => (
+              <Card
+                className={`mb-2 ${
+                  checkedItems.includes(value.id) ? "border-primary border" : ""
+                }`}
+                key={index}
+              >
+                {" "}
+                <CardHeader>
+                  <CardTitle className="flex gap-2">
+                    <Button
+                      variant={"outline"}
+                      size={"icon"}
+                      aria-label="Decrease"
+                      onClick={() => {
+                        delteItem(value.id);
+                      }}
+                    >
+                      <Trash className="text-destructive" />
+                    </Button>
+                    {value.title}
+                  </CardTitle>
+                  <CardDescription className="flex pt-2 gap-4">
+                    <img src={value.image} className="size-22" />
+                    <div className="flex-3 line-clamp-4 ">
+                      {value.description}
+                    </div>
 
-                  <div className=" flex-1 justify-items-end ">
-                    <p className="font-bold text-lg text-primary ">
-                      ${value.price}
-                    </p>
-                    <div className="flex  w-full justify-between items-center">
-                      <p>QTY</p>
-                      <div className="flex items-center gap-4 ">
-                        <Button
-                          variant={"outline"}
-                          size={"icon"}
-                          aria-label="Decrease"
-                          onClick={() => {
-                            substractItem(value);
-                          }}
-                        >
-                          <Minus className=" text-primary " />
-                        </Button>
-                        <p className=" font-bold text-primary ">{value.qty}</p>
-                        <Button
-                          variant={"outline"}
-                          size={"icon"}
-                          aria-label="Decrease"
-                          onClick={() => {
-                            addItem(value);
-                          }}
-                        >
-                          <Plus className="text-primary" />
-                        </Button>
+                    <div className=" flex-1 justify-items-end ">
+                      <p className="font-bold text-lg text-primary ">
+                        ${value.price}
+                      </p>
+                      <div className="flex  w-full justify-between items-center">
+                        <p>QTY</p>
+                        <div className="flex items-center gap-4 ">
+                          <Button
+                            variant={"outline"}
+                            size={"icon"}
+                            aria-label="Decrease"
+                            onClick={() => {
+                              substractItem(value);
+                            }}
+                          >
+                            <Minus className=" text-primary " />
+                          </Button>
+                          <p className=" font-bold text-primary ">
+                            {value.qty}
+                          </p>
+                          <Button
+                            variant={"outline"}
+                            size={"icon"}
+                            aria-label="Decrease"
+                            onClick={() => {
+                              addItem(value);
+                            }}
+                          >
+                            <Plus className="text-primary" />
+                          </Button>
+                        </div>
+                      </div>
+                      <div className="flex  w-full justify-between items-center mt-2">
+                        <p>Total</p>
+
+                        <p className="font-bold text-lg text-primary">
+                          ${(value.qty! * value.price).toFixed(2)}
+                        </p>
                       </div>
                     </div>
-                    <div className="flex  w-full justify-between items-center mt-2">
-                      <p>Total</p>
-
-                      <p className="font-bold text-lg text-primary">
-                        ${(value.qty! * value.price).toFixed(2)}
-                      </p>
-                    </div>
-                  </div>
-                </CardDescription>
-                <CardAction className="flex gap-2 items-center">
-                  <Checkbox
-                    checked={checkedItems.includes(value.id)}
-                    onCheckedChange={() => toggleCheck(value)}
-                    className="border-primary"
-                  />
-                </CardAction>
-              </CardHeader>
-            </Card>
-          ))}
+                  </CardDescription>
+                  <CardAction className="flex gap-2 items-center">
+                    <Checkbox
+                      checked={checkedItems.includes(value.id)}
+                      onCheckedChange={() => toggleCheck(value)}
+                      className="border-primary"
+                    />
+                  </CardAction>
+                </CardHeader>
+              </Card>
+            ))
+          )}
         </div>
         <div className="flex-2 sticky top-16 h-[calc(100vh-4rem)] shadow-[-8px_0_12px_-6px_rgba(0,0,0,0.15)] px-10 py-5">
           <h2 className="font-medium mb-4">
@@ -173,7 +191,7 @@ function CartPage() {
                       size={"icon"}
                       aria-label="Remove"
                       className="mr-2"
-                      onClick={() => (toggleCheck(value))}
+                      onClick={() => toggleCheck(value)}
                     >
                       <Minus className="text-destructive" />
                     </Button>
