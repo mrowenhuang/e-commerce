@@ -17,57 +17,51 @@ If you are developing a production application, we recommend updating the config
 
 ```js
 export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+  # Portfolio E‑Commerce React App
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+  This repository contains a **React** (TypeScript) e‑commerce portfolio built with **Vite**. The project showcases a simple online shop with a home page, product listings, a shopping cart, and a sign‑in page.
 
-      // Other configs...
-    ],
+  ## Screenshots
+
+  Below are some screenshots of the application. The images are stored in the `src/assets_readme` folder.
+
+  ![Home Page](src/assets_readme/Screenshot%20(130).png)
+
+  ![Product Page](src/assets_readme/Screenshot%20(131).png)
+
+  ![Cart Page](src/assets_readme/Screenshot%20(132).png)
+
+  ![Sign‑In Page](src/assets_readme/Screenshot%20(133).png)
+
+  ![Responsive View](src/assets_readme/Screenshot%20(134).png)
+
+  <!-- New screenshot added -->
+  ![New Feature](src/assets_readme/Screenshot%20(135).png)
+
+  ## How to Run
+
+  ```bash
+  # Install dependencies
+  npm install
+
+  # Start the development server
+  npm run dev
+  ```
+
+  Open your browser at `http://localhost:5173` (or the URL shown in the terminal) to view the app.
+
+  ## Project Structure
+
+  ```
+  src/
+  ├─ assets_readme/   # Screenshots used in this README
+  ├─ components/      # Reusable UI components
+  ├─ layouts/         # Layout components
+  ├─ pages/           # Page components (home, cart, etc.)
+  ├─ services/        # API services (login, product)
+  ├─ stores/          # Zustand stores for state management
+  └─ ...
+  ```
+
+  Feel free to explore the code, modify the UI, or add new features!
     languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
