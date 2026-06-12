@@ -1,67 +1,113 @@
-# React + TypeScript + Vite
+# 🛍️ Codai – Modern E-Commerce Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Codai is a modern e-commerce web application built with **TypeScript** and designed to deliver a smooth and responsive shopping experience. The project focuses on clean UI, interactive animations, and scalable frontend architecture while using a fake API for product data simulation.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- 🛒 **Product Catalog**  
+  Browse products through a clean and responsive storefront.
 
-## React Compiler
+- 🔍 **Search & Discover**  
+  Quickly find products with an intuitive search experience.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- ⚡ **Smooth Animations**  
+  Interactive transitions and motion effects powered by Motion.
 
-## Expanding the ESLint configuration
+- 🎨 **Modern UI with shadcn/ui**  
+  Reusable and accessible UI components for consistent design.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- 📱 **Responsive Design**  
+  Optimized experience across desktop and mobile devices.
 
-```js
-export default defineConfig([
-  # Portfolio E‑Commerce React App
+- 📦 **Fake API Integration**  
+  Simulated backend communication for product fetching and testing.
 
-  This repository contains a **React** (TypeScript) e‑commerce portfolio built with **Vite**. The project showcases a simple online shop with a home page, product listings, a shopping cart, and a sign‑in page.
+- 🧩 **Component-Based Architecture**  
+  Maintainable and scalable frontend structure.
 
-  ## Screenshots
+- 🚀 **Fast Development Experience**  
+  Built with TypeScript for better type safety and developer productivity.
 
-  Below are some screenshots of the application. The images are stored in the `src/assets_readme` folder.
+---
 
-  ![Home Page](src/assets_readme/Screenshot%20(130).png)
+## 🖼️ Screenshots
 
-  ![Product Page](src/assets_readme/Screenshot%20(131).png)
+| Home | Product Detail | Cart |
+|------|---------------|------|
+| ![Home](src\assets_readme\home.png) | ![Detail](./public/screenshots/detail.png) | ![Cart](./public/screenshots/cart.png) |
 
-  ![Cart Page](src/assets_readme/Screenshot%20(132).png)
+> Replace the screenshots above with your actual project images.
 
-  ![Sign‑In Page](src/assets_readme/Screenshot%20(133).png)
+---
 
-  ![Responsive View](src/assets_readme/Screenshot%20(134).png)
+## 🛠️ Tech Stack
 
-  <!-- New screenshot added -->
-  ![New Feature](src/assets_readme/Screenshot%20(135).png)
+- ⚛️ **React**
+- 🔷 **TypeScript**
+- 🎞️ **Motion**
+- 🎨 **shadcn/ui**
+- 🌐 **Fake API**
+- 💨 **Tailwind CSS**
 
-  ## How to Run
+---
 
-  ```bash
-  # Install dependencies
-  npm install
+## 📂 Project Structure
 
-  # Start the development server
-  npm run dev
-  ```
+```bash
+src
+├── app
+├── components
+├── hooks
+├── services
+├── types
+├── lib
+├── pages
+└── assets
+```
 
-  Open your browser at `http://localhost:5173` (or the URL shown in the terminal) to view the app.
+---
 
-  ## Project Structure
+## 🚀 Getting Started
 
-  ```
-  src/
-  ├─ assets_readme/   # Screenshots used in this README
-  ├─ components/      # Reusable UI components
-  ├─ layouts/         # Layout components
-  ├─ pages/           # Page components (home, cart, etc.)
-  ├─ services/        # API services (login, product)
-  ├─ stores/          # Zustand stores for state management
-  └─ ...
-  ```
+Clone the repository:
 
-  Feel free to explore the code, modify the UI, or add new features!
-    languageOptions: {
+```bash
+git clone https://github.com/mrowenhuang/e-commerce.git
+```
+
+Go to project directory:
+
+```bash
+cd e-commerce
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start development server:
+
+```bash
+npm run dev
+```
+
+Build production:
+
+```bash
+npm run build
+```
+
+---
+
+## 🌍 Live Preview
+
+Coming soon...
+
+---
+
+## 👨‍💻 Author
+
+Built by **Owen Huang**  
+Passionate about creating modern and responsive web experiences.
