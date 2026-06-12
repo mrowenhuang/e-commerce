@@ -32,11 +32,17 @@ Codai is a modern e-commerce web application built with **TypeScript** and desig
 
 ## 🖼️ Screenshots
 
-| Home | Product Detail | Cart |
+| Home | Collection | Recommended |
 |------|---------------|------|
-| ![Home](src/assets_readme/home.png) | ![Detail](./public/screenshots/detail.png) | ![Cart](./public/screenshots/cart.png) |
+| ![Home](src/assets_readme/home.png) | ![Collection](src/assets_readme/collec.png) | ![Recommended](src/assets_readme/reccom.png) |
 
-> Replace the screenshots above with your actual project images.
+| Social | Footer | Cart |
+|------|---------------|------|
+| ![Social](src/assets_readme/social.png) | ![Footer](src/assets_readme/footer.png) | ![Cart](src/assets_readme/cart.png) |
+
+| SingIn |
+|------|
+| ![SingIn](src/assets_readme/signin.png) |
 
 ---
 
